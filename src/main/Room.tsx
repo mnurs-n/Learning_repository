@@ -1,11 +1,11 @@
 const Room = () => {
 
     class Room { // 1.1 Создали class Room
-        id: number;
-        name: string;
-        capacity: number;
-        pricePerNight: number;
-        isAvailable: boolean = true;
+        readonly id: number; // 1.7 Сделали свойства id и name readonly, чтобы их нельзя было изменить после создания экземпляра класса
+        readonly name: string;
+        protected capacity: number; // 1.8 Сделали свойства capacity, pricePerNight и isAvailable private, чтобы их нельзя было изменить напрямую из вне класса   
+        private pricePerNight: number;
+        private isAvailable: boolean = true;
 
         constructor( // 1.2 Создали constructor для инициализации свойств класса
             id: number,
@@ -15,6 +15,13 @@ const Room = () => {
             isAvailable: boolean
             ) 
             {
+             if (capacity <= 0) { // 1.5 Добавли провеки на отриц значения
+                throw new Error("Capacity must be more than 0")
+                }
+             if (pricePerNight <= 0) {
+                throw new Error("Price per night must be more than 0")
+             }
+
             this.id = id; // 1.3 Инициализировалли свойства класса
             this.name = name;
             this.capacity = capacity;
@@ -63,7 +70,7 @@ const Room = () => {
     }
     
     // Переопределение метода CalculatePrice
-    CalculatePrice(nights: number) {
+    calculatePrice(nights: number) {
         return this.beds * nights;
     }
     
