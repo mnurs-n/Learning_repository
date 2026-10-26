@@ -1,14 +1,14 @@
 import './App.css'
-import Room from './main/Room.tsx'
+import Prototype from './main/Prototype.tsx'
 
 function App() {
   
 
   return (
-    <>
-      <Room />
+    <>                        
+      <Prototype />
     </>
   )
 }
 
-export default App
+export default App;
