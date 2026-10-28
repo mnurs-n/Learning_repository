@@ -1,12 +1,11 @@
 import './App.css'
-import Prototype from './main/Prototype.tsx'
-
+import Playground from './main/Playground.tsx';
 function App() {
   
 
   return (
     <>                        
-      <Prototype />
+      <Playground />
     </>
   )
 }
